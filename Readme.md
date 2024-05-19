@@ -50,3 +50,6 @@ To run Codepad+, you need to have Python installed on your machine. You can down
 - **Paste**: `Ctrl+V`
 - **Select All**: `Ctrl+A`
 - **Find Text**: `Ctrl+F`
+
+**Contact Informations**:
+**Discords**: `arduniomini`, `retrohousexd`
