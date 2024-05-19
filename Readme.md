@@ -1,4 +1,4 @@
-Codepad# is a versatile and multilingual code editor with various features like Base64 encoding/decoding, text searching, customizable background colors, and more. This project is implemented using Python and Tkinter.
+Codepad# is a versatile and multilingual code editor with various features like Base64 encoding/decoding, text searching, customizable background colors, and more. This project is implemented using Python and Tkinter. If you don't like something or find something missing, you can improve it as you wish!
 
 ## Features
 
