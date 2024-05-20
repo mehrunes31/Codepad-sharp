@@ -5,7 +5,7 @@ import base64
 class CodeEditorApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("codepad+")
+        self.root.title("codepad#")
         self.text_area = scrolledtext.ScrolledText(self.root, wrap=tk.WORD)
         self.text_area.pack(expand=True, fill="both")
 
