@@ -13,7 +13,7 @@ Codepad# is a versatile and multilingual code editor with various features like 
 
 ## Installation
 
-To run Codepad+, you need to have Python installed on your machine. You can download Python from [python.org](https://www.python.org/downloads/).
+To run Codepad#, you need to have Python installed on your machine. You can download Python from [python.org](https://www.python.org/downloads/).
 
 1. Clone the repository:
 
@@ -25,11 +25,11 @@ To run Codepad+, you need to have Python installed on your machine. You can down
 2. Install the required dependencies:
 
     ```sh
-    pip install tkinter
+    pip install tk
     ```
    if you have a externally-managed-environment error in pip type this:
      ```sh
-     pip install tkinter --break-system-packages
+     pip install tk --break-system-packages
      ```
 
 3. Run the application:
