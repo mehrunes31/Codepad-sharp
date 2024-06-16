@@ -52,4 +52,4 @@ To run Codepad#, you need to have Python installed on your machine. You can down
 - **Find Text**: `Ctrl+F`
 
 **Contact Informations**:
-**Discords**: `arduniomini`, `retrohousexd`
+**Discords**: `arduniomini`, `iph4nt0m.matrix.org`
