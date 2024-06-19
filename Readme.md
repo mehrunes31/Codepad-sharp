@@ -19,7 +19,7 @@ To run Codepad#, you need to have Python installed on your machine. You can down
 
     ```sh
     git clone https://github.com/mehrunes31/Codepad-sharp.git
-    cd codepad-sharp
+    cd Codepad-sharp
     ```
 
 2. Install the required dependencies:
@@ -35,7 +35,7 @@ To run Codepad#, you need to have Python installed on your machine. You can down
 3. Run the application:
 
     ```sh
-    python codepad#.py
+    python Codepad-sharp.py
     ```
 
 ### Keyboard Shortcuts
