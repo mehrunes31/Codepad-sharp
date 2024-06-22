@@ -10,6 +10,7 @@ Codepad# is a versatile and multilingual code editor with various features like 
 - **Customizable Background**: Choose background color for the editor.
 - **Run Python Files**: Execute Python files directly from the editor.
 - **Keyboard Shortcuts**: Convenient keyboard shortcuts for various operations.
+- **Open Source**: All their code is open source
 
 ## Installation
 
