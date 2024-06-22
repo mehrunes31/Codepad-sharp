@@ -14,7 +14,43 @@ Codepad# is a versatile and multilingual code editor with various features like 
 
 ## Installation
 
-To run Codepad#, you need to have Python installed on your machine. You can download Python from [python.org](https://www.python.org/downloads/).
+To run Codepad#, you need to have Python installed on your machine. You can download Python from [python.org](https://www.python.org/downloads/). or type on your terminal
+
+# Ubuntu and Debian-Based Distributions
+
+```sh
+sudo apt install install pyton3 
+```
+
+# CentOS and Red Hat Enterprise Linux
+
+```sh
+sudo yum install python3
+```
+
+# Fedora
+
+```sh
+sudo dnf install python3
+```
+
+# Arch Linux and Arch Based Distros
+
+```sh
+sudo pacman -S python
+```
+
+# openSUSE
+
+```sh
+sudo zypper install python3
+```
+
+# Gentoo
+
+```sh
+sudo emerge --ask dev-lang/python
+```
 
 1. Clone the repository:
 
