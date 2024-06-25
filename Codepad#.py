@@ -5,7 +5,7 @@ import base64
 class CodeEditorApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("codepad#")
+        self.root.title("Notepad#")
         self.text_area = scrolledtext.ScrolledText(self.root, wrap=tk.WORD)
         self.text_area.pack(expand=True, fill="both")
 
@@ -125,7 +125,97 @@ class CodeEditorApp:
                 "Invalid Base64": "Недопустимый текст Base64!",
                 "Search Prompt": "Введите текст для поиска:",
                 "Find": "Найти",
-            }
+            },
+            "French": {
+               "File": "Fichier",
+               "New": "Nouveau",
+               "Open": "Ouvrir",
+               "Save": "Enregistrer",
+               "Save As": "Enregistrer sous",
+               "Exit": "Quitter",
+               "Edit": "Éditer",
+               "Undo": "Annuler",
+               "Copy": "Copier",
+               "Paste": "Coller",
+               "Select All": "Tout sélectionner",
+               "Search": "Rechercher",
+               "Find...": "Trouver...",
+               "Languages": "Langues",
+               "View": "Affichage",
+               "Choose Background Color": "Choisir la couleur de fond",
+               "Run": "Exécuter",
+               "Run File": "Exécuter le fichier",
+               "Base64": "Base64",
+               "Encode": "Encoder",
+               "Decode": "Décoder",
+               "Exit Confirmation": "Quitter",
+               "Exit Message": "Voulez-vous vraiment quitter ?",
+               "Error": "Erreur",
+               "Invalid Base64": "Texte Base64 invalide !",
+               "Search Prompt": "Entrez le texte à rechercher :",
+               "Find": "Trouver"
+            },  
+            "Spanish": {
+               "File": "Archivo",
+               "New": "Nuevo",
+               "Open": "Abrir",
+               "Save": "Guardar",
+               "Save As": "Guardar como",
+               "Exit": "Salir",
+               "Edit": "Editar",
+               "Undo": "Deshacer",
+               "Copy": "Copiar",
+               "Paste": "Pegar",
+               "Select All": "Seleccionar todo",
+               "Search": "Buscar",
+               "Find...": "Encontrar...",
+               "Languages": "Idiomas",
+               "View": "Ver",
+               "Choose Background Color": "Elegir color de fondo",
+               "Run": "Ejecutar",
+               "Run File": "Ejecutar archivo",
+               "Base64": "Base64",
+               "Encode": "Codificar",
+               "Decode": "Decodificar",
+               "Exit Confirmation": "Salir",
+               "Exit Message": "¿Realmente quieres salir?",
+               "Error": "Error",
+               "Invalid Base64": "¡Texto Base64 inválido!",
+               "Search Prompt": "Ingrese el texto a buscar:",
+               "Find": "Encontrar",
+            },
+            "Italian": {
+               "File": "File",
+               "New": "Nuovo",
+               "Open": "Apri",
+               "Save": "Salva",
+               "Save As": "Salva come",
+               "Exit": "Esci",
+               "Edit": "Modifica",
+               "Undo": "Annulla",
+               "Copy": "Copia",
+               "Paste": "Incolla",
+               "Select All": "Seleziona tutto",
+               "Search": "Cerca",
+               "Find...": "Trova...",
+               "Languages": "Lingue",
+               "View": "Visualizza",
+               "Choose Background Color": "Scegli il colore di sfondo",
+               "Run": "Esegui",
+               "Run File": "Esegui file",
+               "Base64": "Base64",
+               "Encode": "Codifica",
+               "Decode": "Decodifica",
+               "Exit Confirmation": "Esci",
+               "Exit Message": "Vuoi davvero uscire?",
+               "Error": "Errore",
+               "Invalid Base64": "Testo Base64 non valido!",
+               "Search Prompt": "Inserisci il testo da cercare:",
+               "Find": "Trova",
+}
+
+
+
         }
 
         self.current_language = "English"
