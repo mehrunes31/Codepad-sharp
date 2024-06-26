@@ -2,7 +2,7 @@ Codepad# is a versatile and multilingual code editor with various features like 
 
 ## Features
 
-- **Multilingual Support**: Available in English, Turkish, German, Russian, French, Spanish, Italian and Greece.
+- **Multilingual Support**: Available in English, Turkish, German, Russian, French, Spanish, Italian, Greece and Cheenese.
 - **File Operations**: Create new files, open existing files, save files, and save files as new files.
 - **Edit Operations**: Undo, copy, paste, and select all text.
 - **Search Functionality**: Find text within the document.
@@ -10,7 +10,8 @@ Codepad# is a versatile and multilingual code editor with various features like 
 - **Customizable Background**: Choose background color for the editor.
 - **Run Python Files**: Execute Python files directly from the editor.
 - **Keyboard Shortcuts**: Convenient keyboard shortcuts for various operations.
-- **Open Source**: All their code is open source
+- **Open Source**: All their code is open source.
+- **Hex Encoding/Decoding**:Encode and decode Hex codes.
 
 ## Installation
 
