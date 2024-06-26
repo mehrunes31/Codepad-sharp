@@ -32,12 +32,22 @@ class CodeEditorApp:
                 "Base64": "Base64",
                 "Encode": "Encode",
                 "Decode": "Decode",
+                "Hexadecimal": "Hexadecimal",
                 "Exit Confirmation": "Exit",
                 "Exit Message": "Do you really want to exit?",
                 "Error": "Error",
                 "Invalid Base64": "Invalid Base64 text!",
+                "Invalid Hexadecimal": "Invalid Hexadecimal text!",
                 "Search Prompt": "Enter text to search:",
                 "Find": "Find",
+                "Programming Languages": "Programming Languages",
+                "Python": "Python",
+                "Rust": "Rust",
+                "C++": "C++",
+                "Java": "Java",
+                "JavaScript": "JavaScript",
+                "HTML": "HTML",
+                "CSS": "CSS",
             },
             "Turkish": {
                 "File": "Dosya",
@@ -67,6 +77,14 @@ class CodeEditorApp:
                 "Invalid Base64": "Geçersiz Base64 metni!",
                 "Search Prompt": "Aranacak kelimeyi girin:",
                 "Find": "Bul",
+                "Programming Languages": "Programlama Dileri",
+                "Python": "Python",
+                "Rust": "Rust",
+                "C++": "C++",
+                "Java": "Java",
+                "JavaScript": "JavaScript",
+                "HTML": "HTML",
+                "CSS": "CSS",
             },
             "German": {
                 "File": "Datei",
@@ -96,6 +114,14 @@ class CodeEditorApp:
                 "Invalid Base64": "Ungültiger Base64-Text!",
                 "Search Prompt": "Suchbegriff eingeben:",
                 "Find": "Finden",
+                "Programming Languages": "Programmiersprachen",
+                "Python": "Python",
+                "Rust": "Rust",
+                "C++": "C++",
+                "Java": "Java",
+                "JavaScript": "JavaScript",
+                "HTML": "HTML",
+                "CSS": "CSS",
             },
             "Russian": {
                 "File": "Файл",
@@ -125,6 +151,14 @@ class CodeEditorApp:
                 "Invalid Base64": "Недопустимый текст Base64!",
                 "Search Prompt": "Введите текст для поиска:",
                 "Find": "Найти",
+                "Programming Languages": "Языки программирования",
+                "Python": "Python",
+                "Rust": "Rust",
+                "C++": "C++",
+                "Java": "Java",
+                "JavaScript": "JavaScript",
+                "HTML": "HTML",
+                "CSS": "CSS",
             },
             "French": {
                "File": "Fichier",
@@ -153,8 +187,16 @@ class CodeEditorApp:
                "Error": "Erreur",
                "Invalid Base64": "Texte Base64 invalide !",
                "Search Prompt": "Entrez le texte à rechercher :",
-               "Find": "Trouver"
-            },  
+               "Find": "Trouver",
+               "Programming Languages": "Langages de programmation",
+                "Python": "Python",
+                "Rust": "Rust",
+                "C++": "C++",
+                "Java": "Java",
+                "JavaScript": "JavaScript",
+                "HTML": "HTML",
+                "CSS": "CSS",
+            },
             "Spanish": {
                "File": "Archivo",
                "New": "Nuevo",
@@ -183,6 +225,14 @@ class CodeEditorApp:
                "Invalid Base64": "¡Texto Base64 inválido!",
                "Search Prompt": "Ingrese el texto a buscar:",
                "Find": "Encontrar",
+               "Programming Languages": "Lenguajes de programación",
+                "Python": "Python",
+                "Rust": "Rust",
+                "C++": "C++",
+                "Java": "Java",
+                "JavaScript": "JavaScript",
+                "HTML": "HTML",
+                "CSS": "CSS",
             },
             "Italian": {
                "File": "File",
@@ -212,10 +262,15 @@ class CodeEditorApp:
                "Invalid Base64": "Testo Base64 non valido!",
                "Search Prompt": "Inserisci il testo da cercare:",
                "Find": "Trova",
+               "Programming Languages": "Linguaggi di programmazione",
+                "Python": "Python",
+                "Rust": "Rust",
+                "C++": "C++",
+                "Java": "Java",
+                "JavaScript": "JavaScript",
+                "HTML": "HTML",
+                "CSS": "CSS",
 }
-
-
-
         }
 
         self.current_language = "English"
@@ -223,12 +278,12 @@ class CodeEditorApp:
 
         self.create_menu()
 
-        # Ensure the menu is created before setting the language
+        # Menü oluşturulduğundan emin olun, sonra dili ayarlayın
         self.set_language(self.current_language)
 
         self.text_area.bind("<Key>", self.on_keypress)
 
-        # Set up keyboard shortcuts
+        # Klavye kısayollarını ayarlayın
         self.root.bind_all("<Control-n>", lambda event: self.new_file())
         self.root.bind_all("<Control-o>", lambda event: self.open_file())
         self.root.bind_all("<Control-s>", lambda event: self.save_file())
@@ -277,10 +332,25 @@ class CodeEditorApp:
         self.base64_menu.add_command(label=self.translations["Encode"], command=self.encode_base64)
         self.base64_menu.add_command(label=self.translations["Decode"], command=self.decode_base64)
 
+        self.hexadecimal_menu = tk.Menu(self.menu_bar, tearoff=False)
+        self.menu_bar.add_cascade(label=self.translations["Hexadecimal"], menu=self.hexadecimal_menu)
+        self.hexadecimal_menu.add_command(label=self.translations["Encode"], command=self.encode_hexadecimal)
+        self.hexadecimal_menu.add_command(label=self.translations["Decode"], command=self.decode_hexadecimal)
+
         self.language_menu = tk.Menu(self.menu_bar, tearoff=False)
         self.menu_bar.add_cascade(label=self.translations["Languages"], menu=self.language_menu)
         for language in self.languages:
             self.language_menu.add_command(label=language, command=lambda lang=language: self.set_language(lang))
+
+        self.programming_languages_menu = tk.Menu(self.menu_bar, tearoff=False)
+        self.menu_bar.add_cascade(label=self.translations["Programming Languages"], menu=self.programming_languages_menu)
+        self.programming_languages_menu.add_command(label=self.translations["Python"], command=lambda: self.select_language("Python"))
+        self.programming_languages_menu.add_command(label=self.translations["Rust"], command=lambda: self.select_language("Rust"))
+        self.programming_languages_menu.add_command(label=self.translations["C++"], command=lambda: self.select_language("C++"))
+        self.programming_languages_menu.add_command(label=self.translations["Java"], command=lambda: self.select_language("Java"))
+        self.programming_languages_menu.add_command(label=self.translations["JavaScript"], command=lambda: self.select_language("JavaScript"))
+        self.programming_languages_menu.add_command(label=self.translations["HTML"], command=lambda: self.select_language("HTML"))
+        self.programming_languages_menu.add_command(label=self.translations["CSS"], command=lambda: self.select_language("CSS"))
 
     def set_language(self, language):
         self.current_language = language
@@ -294,7 +364,9 @@ class CodeEditorApp:
         self.menu_bar.entryconfig(4, label=self.translations["View"])
         self.menu_bar.entryconfig(5, label=self.translations["Run"])
         self.menu_bar.entryconfig(6, label=self.translations["Base64"])
-        self.menu_bar.entryconfig(7, label=self.translations["Languages"])
+        self.menu_bar.entryconfig(7, label=self.translations["Hexadecimal"])
+        self.menu_bar.entryconfig(8, label=self.translations["Languages"])
+        self.menu_bar.entryconfig(9, label=self.translations["Programming Languages"])
 
         self.file_menu.entryconfig(0, label=self.translations["New"])
         self.file_menu.entryconfig(1, label=self.translations["Open"])
@@ -316,113 +388,118 @@ class CodeEditorApp:
         self.base64_menu.entryconfig(0, label=self.translations["Encode"])
         self.base64_menu.entryconfig(1, label=self.translations["Decode"])
 
+        self.hexadecimal_menu.entryconfig(0, label=self.translations["Encode"])
+        self.hexadecimal_menu.entryconfig(1, label=self.translations["Decode"])
+
+        for i, language in enumerate(self.languages):
+            self.language_menu.entryconfig(i, label=language)
+
     def new_file(self):
-        self.text_area.delete(1.0, tk.END)
+        self.text_area.delete("1.0", tk.END)
 
     def open_file(self):
-        file_path = filedialog.askopenfilename(filetypes=[("All Files", "*.*")])
+        file_path = filedialog.askopenfilename(filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
         if file_path:
             with open(file_path, "r") as file:
-                self.text_area.delete(1.0, tk.END)
-                self.text_area.insert(1.0, file.read())
+                self.text_area.delete("1.0", tk.END)
+                self.text_area.insert(tk.END, file.read())
 
     def save_file(self):
-        if not hasattr(self, "file_path"):
-            self.save_as_file()
+        if hasattr(self, "file_path") and self.file_path:
+            with open(self.file_path, "w") as file:
+                file.write(self.text_area.get(1.0, tk.END))
         else:
-            self.save_content_to_file()
+            self.save_as_file()
 
     def save_as_file(self):
-        file_path = filedialog.asksaveasfilename(defaultextension=".*", filetypes=[("All Files", "*.*")])
-        if file_path:
-            self.file_path = file_path
-            self.save_content_to_file()
-
-    def save_content_to_file(self):
-        with open(self.file_path, "w") as file:
-            file.write(self.text_area.get(1.0, tk.END))
+        self.file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
+        if self.file_path:
+            with open(self.file_path, "w") as file:
+                file.write(self.text_area.get(1.0, tk.END))
 
     def exit_app(self):
         if messagebox.askokcancel(self.translations["Exit Confirmation"], self.translations["Exit Message"]):
-            self.root.destroy()
+            self.root.quit()
 
     def undo(self):
         self.text_area.edit_undo()
 
     def copy(self):
-        self.text_area.clipboard_clear()
-        self.text_area.clipboard_append(self.text_area.selection_get())
+        self.text_area.event_generate("<<Copy>>")
 
     def paste(self):
         self.text_area.event_generate("<<Paste>>")
 
     def select_all(self):
-        self.text_area.tag_add(tk.SEL, "1.0", tk.END)
-        self.text_area.mark_set(tk.INSERT, "1.0")
-        self.text_area.see(tk.INSERT)
-        return "break"
+        self.text_area.tag_add("sel", "1.0", "end")
 
     def find_text(self):
-        search_window = tk.Toplevel(self.root)
-        search_window.title(self.translations["Find"])
-        search_label = tk.Label(search_window, text=self.translations["Search Prompt"])
-        search_label.pack(side=tk.LEFT, padx=5, pady=5)
-        search_entry = tk.Entry(search_window)
-        search_entry.pack(side=tk.LEFT, padx=5, pady=5)
-        search_entry.focus_set()
-        search_button = tk.Button(search_window, text=self.translations["Find"], command=lambda: self.search_text(search_entry.get()))
-        search_button.pack(side=tk.LEFT, padx=5, pady=5)
+        search_prompt = tk.simpledialog.askstring(self.translations["Find"], self.translations["Search Prompt"])
+        if search_prompt:
+            self.search_text(search_prompt)
 
-    def search_text(self, search_query):
-        self.text_area.tag_remove("found", "1.0", tk.END)
-        if search_query:
-            count = tk.IntVar()
-            idx = "1.0"
-            while idx:
-                idx = self.text_area.search(search_query, idx, nocase=1, stopindex=tk.END, count=count)
-                if idx:
-                    end_idx = f"{idx}+{count.get()}c"
-                    self.text_area.tag_add("found", idx, end_idx)
-                    idx = end_idx
-            self.text_area.tag_config("found", background="yellow")
+    def search_text(self, search_prompt):
+        start_pos = "1.0"
+        while True:
+            start_pos = self.text_area.search(search_prompt, start_pos, stopindex=tk.END)
+            if not start_pos:
+                break
+            end_pos = f"{start_pos}+{len(search_prompt)}c"
+            self.text_area.tag_add("highlight", start_pos, end_pos)
+            self.text_area.tag_config("highlight", background="yellow")
+            start_pos = end_pos
 
     def choose_background_color(self):
-        color = colorchooser.askcolor(parent=self.root)[1]
+        color = colorchooser.askcolor()[1]
         if color:
-            self.set_background(color)
-
-    def set_background(self, color):
-        self.current_background = color
-        self.text_area.config(bg=color)
-
-    def on_keypress(self, event):
-        if event.keysym == 'Tab':
-            self.text_area.insert(tk.INSERT, '   ')  # 3 boşluk ekle
-            return 'break'
-
-    def encode_base64(self):
-        text_to_encode = self.text_area.get(1.0, tk.END).strip()
-        encoded_text = base64.b64encode(text_to_encode.encode()).decode()
-        self.text_area.delete(1.0, tk.END)
-        self.text_area.insert(tk.END, encoded_text)
-
-    def decode_base64(self):
-        text_to_decode = self.text_area.get(1.0, tk.END).strip()
-        try:
-            decoded_text = base64.b64decode(text_to_decode.encode()).decode()
-            self.text_area.delete(1.0, tk.END)
-            self.text_area.insert(tk.END, decoded_text)
-        except Exception as e:
-            messagebox.showerror(self.translations["Error"], self.translations["Invalid Base64"])
+            self.text_area.config(bg=color)
 
     def run_file(self):
         file_path = filedialog.askopenfilename(filetypes=[("Python Files", "*.py"), ("All Files", "*.*")])
         if file_path:
-            import subprocess
-            try:
-                subprocess.Popen(["python", file_path])
-            except Exception as e:
-                messagebox.showerror(self.translations["Error"], f"{self.translations['Error']}: {e}")
+            exec(open(file_path).read())
+
+    def encode_base64(self):
+        input_text = self.text_area.get("1.0", tk.END).strip()
+        try:
+            encoded_text = base64.b64encode(input_text.encode()).decode()
+            self.text_area.delete("1.0", tk.END)
+            self.text_area.insert(tk.END, encoded_text)
+        except Exception as e:
+            messagebox.showerror(self.translations["Error"], self.translations["Invalid Base64"])
+
+    def decode_base64(self):
+        input_text = self.text_area.get("1.0", tk.END).strip()
+        try:
+            decoded_text = base64.b64decode(input_text.encode()).decode()
+            self.text_area.delete("1.0", tk.END)
+            self.text_area.insert(tk.END, decoded_text)
+        except Exception as e:
+            messagebox.showerror(self.translations["Error"], self.translations["Invalid Base64"])
+
+    def encode_hexadecimal(self):
+        input_text = self.text_area.get("1.0", tk.END).strip()
+        try:
+            encoded_text = input_text.encode().hex()
+            self.text_area.delete("1.0", tk.END)
+            self.text_area.insert(tk.END, encoded_text)
+        except Exception as e:
+            messagebox.showerror(self.translations["Error"], self.translations["Invalid Hexadecimal"])
+
+    def decode_hexadecimal(self):
+        input_text = self.text_area.get("1.0", tk.END).strip()
+        try:
+            decoded_text = bytes.fromhex(input_text).decode()
+            self.text_area.delete("1.0", tk.END)
+            self.text_area.insert(tk.END, decoded_text)
+        except Exception as e:
+            messagebox.showerror(self.translations["Error"], self.translations["Invalid Hexadecimal"])
+
+    def on_keypress(self, event):
+        self.text_area.edit_modified(True)
+
+    def select_language(self, language):
+        messagebox.showinfo("Programming Language Selected", f"You selected {language}")
 
 if __name__ == "__main__":
     root = tk.Tk()
